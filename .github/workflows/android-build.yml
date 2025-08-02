@@ -56,12 +56,12 @@ jobs:
             VideoServer/.gradle
           key: ${{ runner.os }}-videoserver-gradle-${{ hashFiles('VideoServer/gradlew', 'VideoServer/build.gradle') }}
 
-      - name: Build VideoServer
-        run: chmod +x gradlew && ./gradlew build
+      - name: Build VideoServer Shadow JAR
+        run: chmod +x gradlew && ./gradlew shadowJar
         working-directory: ./VideoServer
 
-      - name: Upload VideoServer jar artifact
+      - name: Upload VideoServer shadow JAR artifact
         uses: actions/upload-artifact@v4
         with:
-          name: video-server-jar
-          path: VideoServer/build/libs/*.jar
+          name: video-server-shadow-jar
+          path: VideoServer/build/libs/*-all.jar
