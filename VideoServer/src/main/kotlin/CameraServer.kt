@@ -15,7 +15,8 @@ class CameraServer {
         fun onAvailable(frame: ByteArray)
     }
 
-    private val deviceOfflineImage: ByteArray = File("device_offline.jpg").readBytes()
+    private val deviceOfflineImage = object {}.javaClass.getResource("/device_offline.jpg")?.readBytes()
+        ?: error("device_offline.jpg not found in resources!")
 
     private val server = ServerSocket(4321)
     
