@@ -64,4 +64,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: video-server-shadow-jar
-          path: VideoServer/build/libs/*-all.jar
+          path: VideoServer/build/libs/*-SNAPSHOT.jar 
