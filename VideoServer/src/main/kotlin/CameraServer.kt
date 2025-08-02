@@ -44,9 +44,9 @@ class CameraServer {
         createFrameDelegatorThread().start()
 
         val thread = Thread() {
-            println("Camera server: Starting camera server")
+            println("CameraServer: Starting the cameraserver")
 
-            println("Camera server: Waiting for clients...")
+            println("CameraServer: Waiting for clients...")
             val client = server.accept()
             deviceConnected = true
             val connectionTime = System.currentTimeMillis()
@@ -104,7 +104,7 @@ class CameraServer {
                         iterator.forEach { listener ->
                             listener.onAvailable(deviceOfflineImage)
                         }
-                        println("Device offline, sending \"Device offline image\"")
+                        println("Device is offline - sending fallback image")
                         Thread.sleep(1000 / 24)
                     }
                     continue

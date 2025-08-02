@@ -16,7 +16,7 @@ You can either watch this video or follow the steps below.
    - Camera Server (runs on port 4321)
 
 2. Install the app on your phone.
-3. Navigate to the app's settings screen and set up your camera server's IP. For example: `192.168.0.101:4321`
+3. Navigate to the app's settings screen and set up your camera server's IP. For example: `192.168.178.101:4321`
 4. Open the stream screen and click the "Start streaming" button.
 5. Your phone is now sending video data to your Camera Server.
 
@@ -27,20 +27,20 @@ The stream can be watched from either your browser, the Web App, or apps like VL
 
 ### Browser
 Open your favorite web browser and navigate to your MJPEG Server's IP address. For example:  
-`http://192.168.0.101:4444`
+`http://192.168.178.101:4444`
 
 ![Preview](https://github.com/BalioFVFX/IP-Camera/blob/main/media/browser.gif?raw=true)
 
 ### VLC Media Player
 Open VLC Media Player. Go to **File → Open Network → Network** and enter your MJPEG Server's IP address. For example:  
-`http://192.168.0.101:4444/`
+`http://192.168.178.101:4444/`
 
 ![Preview](https://github.com/BalioFVFX/IP-Camera/blob/main/media/vlc.gif?raw=true)
 
 ### The Web App
 1. Navigate to the Web App's root directory and execute `webpack serve` in your terminal.
 2. Open your browser and go to `http://localhost:8080/`.
-3. Go to the settings page and enter your WebSocket Server's IP address. For example: `192.168.0.101:1234`
+3. Go to the settings page and enter your WebSocket Server's IP address. For example: `192.168.178.101:1234`
 4. Navigate to the streaming page at `http://localhost:8080/stream.html` and click the "Connect" button.
 
 ![Preview](https://github.com/BalioFVFX/IP-Camera/blob/main/media/webapp.gif?raw=true)

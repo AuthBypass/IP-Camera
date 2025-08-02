@@ -16,7 +16,7 @@ class ViewerWebSocketServer(val connectionListener: Listener) {
 
     private val server = object: WebSocketServer(InetSocketAddress(1234)) {
         override fun onOpen(conn: WebSocket?, handshake: ClientHandshake?) {
-            println("ViewerWebSocketServer: onOpen")
+            println("ViewerWebSocketServer: New connection opened from ${conn?.remoteSocketAddress}")
 
             val listener = object: CameraServer.OnFrameAvailable {
                 override fun onAvailable(frame: ByteArray) {
