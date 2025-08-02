@@ -1,9 +1,9 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.7.21'
+    id 'org.jetbrains.kotlin.jvm' version '2.0.0'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
-group = 'org.example'
+group = 'com.videoserver'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -16,31 +16,29 @@ dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(22)
+    }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = '22'
+    }
+}
+
 test {
     useJUnitPlatform()
 }
 
-compileKotlin {
-    kotlinOptions.jvmTarget = '1.8'
-}
-
-compileTestKotlin {
-    kotlinOptions.jvmTarget = '1.8'
-}
-
-jar {
-    manifest {
-        attributes(
-            'Main-Class': 'MainKt'
-        )
-    }
-}
-
 shadowJar {
     archiveBaseName.set('VideoServer')
-    archiveClassifier.set('')
     archiveVersion.set('1.0-SNAPSHOT')
+    archiveClassifier.set('')
     manifest {
-        attributes('Main-Class': 'MainKt')
+        attributes 'Main-Class': 'com.videoserver.MainKt'
     }
 }
+
+build.dependsOn(shadowJar)
